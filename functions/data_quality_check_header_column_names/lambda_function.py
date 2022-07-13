@@ -37,8 +37,8 @@ def lambda_handler(event, context):
     content = read_csv(body)
     
     if check_csv_header(content):
-        s3.upload_fileobj(body, 'cleaned-ongoing-csv-files', csv_file_key)
-        print(f'File {csv_file_key} moved to cleaned-ongoing-csv-files bucket')
+        s3.upload_fileobj(body, 'good-csv-files', csv_file_key)
+        print(f'File {csv_file_key} moved to good-csv-files bucket')
     else:
         print(f'File {csv_file_key} is out of standard. Please check and resend.')
 
